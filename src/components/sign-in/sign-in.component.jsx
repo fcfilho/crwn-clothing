@@ -25,12 +25,10 @@ class SignIn extends React.Component{
         try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: ''})
-        }
-        catch (error) {
+        } catch (error) {
             console.error(error);
         }
-
-    }
+    };
 
     handleChange = event => {
         const { value, name } = event.target;
