@@ -11,39 +11,44 @@ import {
     selectCartTotal 
 } from '../../redux/cart/cart.selectors';
 
-import './checkout.styles.scss';
+import {
+    CheckoutPageContainer,
+    CheckoutHeaderContainer,
+    HeaderBlockContainer,
+    TotalContainer,
+    WarningContainer} from './chekout.styles';
 
 const CheckoutPage = ({cartItems, total}) => (
-    <div className='checkout-page'>
-        <div className='checkout-header'>
-            <div className='checkout-block'>
+    <CheckoutPageContainer>
+        <CheckoutHeaderContainer>
+            <HeaderBlockContainer>
                 <span className=''>Product</span>
-            </div>
-            <div className='checkout-block'>
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span className=''>Descripton</span>
-            </div>
-            <div className='checkout-block'>
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span className=''>Quantity</span>
-            </div>
-            <div className='checkout-block'>
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span className=''>Price</span>
-            </div>
-            <div className='checkout-block'>
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span className=''>Remove</span>
-            </div>
-        </div>
+            </HeaderBlockContainer>
+        </CheckoutHeaderContainer>
         {cartItems.map(cartItem => (
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
         ))}
 
-        <div className='total'>TOTAL: ${total}</div>
-        <div className='test-warning'>
+        <TotalContainer>TOTAL: ${total}</TotalContainer>
+        <WarningContainer>
             *Please use the following test credit card for payments*
             <br />
             4242 4242 4242 4242 - Exp: 01/22 - cvv: 123
-        </div>
+        </WarningContainer>
         <StripeCheckoutButton price={total} />
-    </div>
+    </CheckoutPageContainer>
 )
 
 const mapStateToProps = createStructuredSelector({
