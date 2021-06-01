@@ -3,7 +3,7 @@ import ShopActionTypes from './shop.types';
 const INITIAL_STATE = {
     collections: null,
     isFetching: false,
-    errerMessage: undefined
+    errorMessage: undefined
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
